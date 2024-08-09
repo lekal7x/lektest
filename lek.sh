@@ -15,25 +15,25 @@ fi
 ls
 
 # 3. Change the permissions of the downloaded package
-chmod 777 falcon-sensor_7.16.0-16903_amd64.deb
+sudo chmod 777 falcon-sensor_7.16.0-16903_amd64.deb
 
 # 4. List the files again to confirm permission changes
 ls
 
 # 5. Install the Falcon Sensor package
-dpkg -i falcon-sensor_7.16.0-16903_amd64.deb
+sudo dpkg -i falcon-sensor_7.16.0-16903_amd64.deb
 
 # 6. Configure the Falcon Sensor with the CID
-/opt/CrowdStrike/falconctl -s --cid=672988DA1DD740E2BFEF95FB658BABE5-3A
+sudo /opt/CrowdStrike/falconctl -s --cid=00F79DE8BE94463D8482591A1A4B5AF2-85
 
 # 7. Enable the Falcon Sensor service to start at boot
-systemctl enable falcon-sensor
+sudo systemctl enable falcon-sensor
 
 # 8. Start the Falcon Sensor service
-systemctl start falcon-sensor
+sudo systemctl start falcon-sensor
 
 # 9. Check the status of the Falcon Sensor service
-systemctl status falcon-sensor
+sudo systemctl status falcon-sensor
 
 # 10. Alternative method to check the service status
-service falcon-sensor status
+sudo service falcon-sensor status
