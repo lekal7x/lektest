@@ -1,19 +1,39 @@
 #!/bin/bash
 
-# 1. ดาวน์โหลดไฟล์ติดตั้ง Falcon Sensor
-wget https://dtdreport.inet.co.th/index.php/s/9DrKsMkXCTpbfmy/download/falcon-sensor_Ubuntu_7.03.0-15805_amd64.deb
+# 1. Download the Falcon Sensor package and wait until it's complete
+wget https://storage.googleapis.com/falcon-sensor.appspot.com/ubuntu/7.16.16903/falcon-sensor_7.16.0-16903_amd64.deb
 
-# 2. รอให้การดาวน์โหลดเสร็จสมบูรณ์
-wait
+# Check if the file was downloaded successfully
+if [ -f "falcon-sensor_7.16.0-16903_amd64.deb" ]; then
+    echo "Download complete."
+else
+    echo "Download failed."
+    exit 1
+fi
 
-# 3. แสดงรายการไฟล์ในไดเรกทอรีปัจจุบัน
+# 2. List the files in the current directory
 ls
 
-# 4. เปลี่ยนสิทธิ์ของไฟล์ติดตั้งเป็น 777
-chmod 777 falcon-sensor_Ubuntu_7.03.0-15805_amd64.deb
+# 3. Change the permissions of the downloaded package
+chmod 777 falcon-sensor_7.16.0-16903_amd64.deb
 
-# 5. แสดงรายการไฟล์ในไดเรกทอรีปัจจุบันอีกครั้ง
+# 4. List the files again to confirm permission changes
 ls
 
-# 6. ติดตั้งแพ็กเกจ Falcon Sensor
-dpkg -i falcon-sensor_Ubuntu_7.03.0-15805_amd64.deb
+# 5. Install the Falcon Sensor package
+dpkg -i falcon-sensor_7.16.0-16903_amd64.deb
+
+# 6. Configure the Falcon Sensor with the CID
+/opt/CrowdStrike/falconctl -s --cid=672988DA1DD740E2BFEF95FB658BABE5-3A
+
+# 7. Enable the Falcon Sensor service to start at boot
+systemctl enable falcon-sensor
+
+# 8. Start the Falcon Sensor service
+systemctl start falcon-sensor
+
+# 9. Check the status of the Falcon Sensor service
+systemctl status falcon-sensor
+
+# 10. Alternative method to check the service status
+service falcon-sensor status
