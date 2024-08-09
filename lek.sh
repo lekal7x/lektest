@@ -7,13 +7,13 @@ wget https://dtdreport.inet.co.th/index.php/s/9DrKsMkXCTpbfmy/download/falcon-se
 ls
 
 # 3. เปลี่ยนสิทธิ์ของไฟล์ติดตั้งเป็น 777
-chmod 777 falcon-sensor_7.16.0-16903_amd64.deb
+chmod 777 falcon-sensor_7.03.0-15805_amd64.deb
 
 # 4. แสดงรายการไฟล์ในไดเรกทอรีปัจจุบันอีกครั้ง
 ls
 
 # 5. ติดตั้งแพ็กเกจ Falcon Sensor
-dpkg -i falcon-sensor_7.16.0-16903_amd64.deb
+dpkg -i falcon-sensor_7.03.0-15805_amd64.deb
 
 # 6. ตั้งค่า CID (Customer ID) สำหรับ Falcon Sensor
 /opt/CrowdStrike/falconctl -s --cid=00F79DE8BE94463D8482591A1A4B5AF2-85
