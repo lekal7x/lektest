@@ -8,7 +8,7 @@ fi
 
 # 1. ดาวน์โหลดไฟล์ติดตั้ง Falcon Sensor
 echo "กำลังดาวน์โหลด Falcon Sensor..."
-curl -o https://ocp-cloud.inet.co.th/owncloud/index.php/s/TNeTTRJQXpJgdEu/download
+curl -o edr.rpm https://ocp-cloud.inet.co.th/owncloud/index.php/s/TNeTTRJQXpJgdEu/download
 if [ $? -ne 0 ]; then
   echo "การดาวน์โหลดไฟล์ติดตั้งล้มเหลว" >&2
   exit 1
