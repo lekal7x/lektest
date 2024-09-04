@@ -21,7 +21,7 @@ ls
 sleep 10  # รอ 10 วินาที
 
 # 3. เปลี่ยนสิทธิ์ของไฟล์ติดตั้งเป็น 777
-chmod 777 falcon-sensor-7.06.0-16108.el9.x86_64.rpm
+chmod 777 edr.rpm
 sleep 10  # รอ 10 วินาที
 
 # 4. แสดงรายการไฟล์ในไดเรกทอรีปัจจุบันอีกครั้ง
@@ -31,7 +31,7 @@ sleep 10  # รอ 10 วินาที
 
 # 5. ติดตั้งแพ็กเกจ Falcon Sensor
 echo "กำลังติดตั้ง Falcon Sensor..."
-yum install falcon-sensor-7.06.0-16108.el9.x86_64.rpm
+yum install edr.rpm
 if [ $? -ne 0 ]; then
   echo "การติดตั้งล้มเหลว หรืออาจมีปัญหาการขึ้นทะเบียนแพ็กเกจ" >&2
   exit 1
